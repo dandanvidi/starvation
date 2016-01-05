@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<svg baseProfile="full" height="100%" version="1.1" width="100%" xmlns="http://www.w3.org/2000/svg" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xlink="http://www.w3.org/1999/xlink">
+<defs />
+<g fill="red" id="shapes">
+<line x1="10cm" y1="3cm" x2="10cm" y2="12cm" stroke-width="5" stroke="black" />
+<circle cx="10cm" cy="15cm" r="3cm" stroke="black" fill="none" stroke-width="3" />
+<rect x="10cm" y="3.5cm" fill="none" height="30mm" width="30mm" stroke="black" stroke-width="3" />
+</g>
+</svg>
