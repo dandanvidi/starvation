@@ -16,8 +16,8 @@ rxns['EX_glc_e'].lower_bound = 0 # uptake of carbon source reaction is initializ
 exchange_reactions = [r for r in model.reactions if 'EX_' in r.id]
 carbon_sources = pd.DataFrame(index=model.reactions, 
                               columns=['metabolite id', 'metabolite name', 'MW [Da]', 
-                                       'carbons', 'yield [gCDW/mmol carbon]',
-                                       'ATP yield [mol ATP/mol carbon]', 'exchange'])
+                                       'carbons', 'yield [gCDW/mmol carbon]', 'ATP yield [mol ATP/mol]',
+                                       'ATP yield [mol ATP/mol carbon]', 'ATP yield [mol ATP/Da]', 'exchange'])
                                        
 for i, r in enumerate(exchange_reactions):
     print i, 
@@ -55,9 +55,9 @@ for i, r in enumerate(exchange_reactions):
 
             rxns['ATPS4rpp'].objective_coefficient = 0
             rxns['Ec_biomass_iJO1366_core_53p95M'].objective_coefficient = 1
-
+            carbon_sources['ATP yield [mol ATP/mol]'][r] = model.solution.f * mf.elements['C']
             carbon_sources['ATP yield [mol ATP/mol carbon]'][r] = model.solution.f
-                  
+            carbon_sources['ATP yield [mol ATP/Da]'][r] = model.solution.f / mf.weight  
         r.lower_bound = 0            
         
                
